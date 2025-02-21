@@ -1,0 +1,25 @@
+.bond-inputs{
+    margin-top: 30px;
+}
+.bond-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.bond-item input {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.bond-buttons button {
+    margin-left: 5px;
+    height: 35px;
+    width: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+.bond .table-main table{
+    margin-top: 60px;
+}

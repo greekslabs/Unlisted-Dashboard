@@ -1,0 +1,21 @@
+.pdf-btn{
+    border: 1px dashed ;
+    /* outline: none;
+    border: none; */
+    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+}
+
+.pdf-btn i{
+    color: red;
+}
+
+.pdf-btn span{
+    margin-left: 5px;
+}
+
+.pro-pdf .form-btn{
+    text-align: center;
+
+} 

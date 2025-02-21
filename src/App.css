@@ -1,0 +1,12 @@
+.layout{
+    display: flex;
+   
+}
+/* .sidebar{
+} */
+.component{
+    padding: 20px;
+    width: 100%;
+    margin-left: 80px;
+}
+

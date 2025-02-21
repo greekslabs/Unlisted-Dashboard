@@ -1,0 +1,23 @@
+.filter{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+/* .filter {
+} */
+
+.enquiry .table-main{
+    margin-top: 20px;
+}
+
+
+
+/* .pending-btn{
+    margin-left: 2px;
+    background-color: white !important;
+    color: black !important;
+
+} */

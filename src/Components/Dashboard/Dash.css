@@ -1,0 +1,90 @@
+body {
+    background-color: white;
+}
+.dashboard{
+    /* margin-left: 90px; */
+    overflow: hidden;
+}
+.common{
+    margin-left: 90px;
+    padding: 10px 10px;
+
+    
+}
+
+.card {
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 1px 5px 1px #cfcaca;
+    border-radius: 8px;
+    width: 100%;
+    overflow: hidden;
+    height: 130px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    padding: 15px;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* .content {
+    margin-left: 15px;
+    margin-left: 80px;
+} */
+
+.content h5 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.content p {
+    font-size: 1rem;
+    color: #555;
+}
+@media(max-width:750px){
+    .card-content{
+        justify-content: center;
+    margin-top: 22px;
+    }
+}
+
+
+
+.table-main{
+    width: 100%;
+    margin: 20px 0px;
+}
+.table{
+    padding: 10px;
+}
+.table tr td{
+    color: #776891;
+}
+
+.table tr td button{
+    background-color: red;
+    color: white;
+    outline: none;
+    border: none;
+    /* height: 28px; */
+    width: 55px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.table tr td button:hover{
+    background-color: darkred;
+}
+
+
+ 

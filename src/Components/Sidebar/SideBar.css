@@ -1,0 +1,110 @@
+ .side-bar {
+    width: 250px;
+    padding: 20px;
+    color: black;
+    box-shadow: 0px 1px 5px 1px #bab7b7;
+    height: auto;
+    transition: width 0.3s ease-in-out;
+    overflow-y: auto;
+    position: fixed;
+    z-index: 9999;
+    background: white;
+}
+
+.side-bar.toggled {
+    width: 80px;
+    z-index: 9999;
+    background: white;
+}
+
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+
+}
+
+.sidebar-list li {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    gap: 10px;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #776891;
+    position: relative;
+}
+
+
+.sidebar-list li:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 2px); 
+    height: 100%;
+    background: rgba(255, 0, 0, 0.1); 
+    border-radius: 0 20px 20px 0; 
+    z-index: -1; 
+}
+
+.sidebar-list .dash {
+    text-decoration: none;
+    color: black;
+    color: #776891;
+
+}
+
+.sidebar-list li:hover {
+    color: red;
+}
+
+
+.sidebar-list li i {
+    margin-right: 10px;
+}
+ul.sidebar-list {
+    padding-bottom: 10px; 
+  }
+
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: rgb(33, 28, 28);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.side-bar.toggled .sidebar-list ul li {
+    display: none;
+}
+
+.dropdown-menu {
+    display: none;
+    padding-left: 20px;
+}
+
+.toggle-btn .cross {
+    display: none;
+}
+
+.side-bar.toggled .toggle-btn .bars {
+    display: none;
+}
+
+.side-bar.toggled .toggle-btn .cross {
+    display: inline-block;
+} 
+
+body.modal-open .side-bar {
+    pointer-events: none; 
+    opacity: 0.5;
+    
+}
