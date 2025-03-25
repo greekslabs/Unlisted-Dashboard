@@ -13,6 +13,10 @@
     margin-top: 20px;
 }
 
+.tab-content .table-main{
+    margin-top: 50px;
+}
+
 
 
 /* .pending-btn{
@@ -21,3 +25,22 @@
     color: black !important;
 
 } */
+
+.null-data{
+    text-align: center;
+    margin: 10px 50px;
+
+}
+.download{
+    float: right;
+}
+.download-btn{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: coral;
+    color: white;
+
+}

@@ -45,5 +45,12 @@ margin-top:40px ;
     margin-right: 10px;
 }
 .details button{
-    margin-left: 5px;
+    /* margin-left: 10px;
+    
+    /* align-items: center;
+    gap: 20px; */ 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
+

@@ -1,0 +1,40 @@
+.main{
+    background-color: none;
+}
+.active {
+    /* color: red; */
+    background-color: none;
+    /* font-weight: bold; */
+}
+.tab-switch{
+    margin-top: 20px;
+}
+.unlisted{
+    margin-top: 20px;
+}
+
+.bond{
+    margin-top: 20px;
+}
+
+.nav-link{
+    color: black;
+
+}
+
+.nav-item button{
+    border: 1px solid black;
+}
+
+.tab-pane{
+    margin: 0;
+}
+.prodetail-inputs{
+    margin-top: 30px;
+}
+
+ .nav-item .active{
+    border: 1px solid black !important; 
+    background-color: #4deb99 !important;
+ }
+

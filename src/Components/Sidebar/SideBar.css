@@ -9,12 +9,14 @@
     position: fixed;
     z-index: 9999;
     background: white;
+    
 }
 
 .side-bar.toggled {
     width: 80px;
     z-index: 9999;
     background: white;
+
 }
 
 
@@ -38,7 +40,38 @@
     margin-top: 10px;
     color: #776891;
     position: relative;
+    overflow: hidden;
+
 }
+
+
+
+
+/* .sidebar-list li:hover {
+    color: red;
+} */
+
+.dash-name {
+    display: none;
+     margin: 0;
+     top: -5px;
+     left: 50%;
+     transform: translate(-50%);
+     padding: 5px 10px;
+     border-radius: 5px;
+     z-index: 1000;
+     position: absolute;
+     
+
+     /* margin-left: 10px; */  
+}
+
+.dash:hover .dash-name {
+    display: inline-block;
+    margin-left: 0px; 
+    position: relative;
+  
+} 
 
 
 .sidebar-list li:hover::before {
@@ -48,7 +81,7 @@
     left: 0;
     width: calc(100% - 2px); 
     height: 100%;
-    background: rgba(255, 0, 0, 0.1); 
+    /* background: rgba(255, 0, 0, 0.1);  */
     border-radius: 0 20px 20px 0; 
     z-index: -1; 
 }
@@ -56,22 +89,32 @@
 .sidebar-list .dash {
     text-decoration: none;
     color: black;
-    color: #776891;
+    /* background-color: #776891; */
+    /* z-index: 10000; */
+
 
 }
-
-.sidebar-list li:hover {
-    color: red;
-}
-
+/* .sidebar-list li:hover,
+.sidebar-list a:focus li {
+  color: red;
+  background: rgba(255, 0, 0, 0.1);
+} */
 
 .sidebar-list li i {
     margin-right: 10px;
 }
+
 ul.sidebar-list {
     padding-bottom: 10px; 
   }
 
+.actived{
+    /* color: red; */
+    color: #00a54f;
+    background-color: #4deb99;
+    font-weight: bold;
+    border-radius: 10px;
+}
 
 .toggle-btn {
     background: none;
@@ -108,3 +151,4 @@ body.modal-open .side-bar {
     opacity: 0.5;
     
 }
+

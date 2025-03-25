@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SideBar.css";
 import { Link } from "react-router-dom";
 
 function SideBar() {
-  const [toggle, setToggle] = useState(false);
-  // const [access,setaccess]=useState('')
+  const [toggle, setToggle] = useState(true);
+  const [access, setaccess] = useState('')
+  // const current="dashboard"
+  // const [actived, setActived] = useState("dashboard")
+  const [actived, setActived] = useState(localStorage.getItem("actived") || "dashboard");
+
 
   const togglebar = () => {
     setToggle(!toggle);
   };
 
-  // useEffect(()=>{
-  //       const token = sessionStorage.getItem('token')
-  //       setaccess(token)
-  // },[])
+  useEffect(() => {
+    // const token = localStorage.getItem('token')
+    // setaccess(token)
+    // setActived(actived)
+  }, [])
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    setaccess(token)
+    // setActived(actived)
+
+    const savedActive = localStorage.getItem("actived");
+    if (savedActive) {
+      setActived(savedActive);
+    }
+  }, []);
+
+  const handleSetActive = (active) => {
+    setActived(active);
+    localStorage.setItem("actived", active);
+  };
 
   return (
     <div className={`side-bar ${toggle ? "toggled" : ""}`}>
@@ -24,117 +45,204 @@ function SideBar() {
       </button>
 
       <ul className="sidebar-list">
-          <Link to='/dashboard' className="dash" >
-          <li>
-            <i className="fa-solid fa-chart-bar dash"></i>
-          {!toggle && <span>Dashboard</span>}
-          </li>
-          </Link>
 
-          <Link to='/offer' className="dash">
-          <li>
-            <i className="fa-regular fa-envelope"></i>
-          {!toggle && <span>OfferCarousal</span>}
-          </li>
-          </Link>
 
-          <Link to='/product' className="dash">
+        <Link to="/dashboard" className="dash">
+          <li
+            className={`${actived === "dashboard" ? "actived" : ""}`}
+            onClick={() => handleSetActive("dashboard")}>
+            <i className="bi bi-clipboard2-data"></i>
+            <span>DashBoard</span>
+          </li>
+          {/* <p className="dash-name">Dashboard</p> */}
+        </Link>
+
+
+        <Link to="/offer" className="dash">
+          <li
+            className={`${actived === "offer" ? "actived" : ""}`}
+            onClick={() => handleSetActive("offer")} >
+            <i className="fa-solid fa-envelope"></i>
+            <span>Offer</span>
+          </li>
+          {/* <p className="dash-name">Offer</p> */}
+        </Link>
+
+
+        <div>
+          <Link to='/category' className="dash">
+            <li
+              className={`${actived === "category" ? "actived" : ""}`}
+              onClick={() => handleSetActive("category")}>
+              <i className="fa-solid fa-layer-group"></i>
+              {!toggle && <span>Category</span>}
+            </li>
+
+
+          </Link>
+          {/* <p className="dash-name">Category</p> */}
+          
+        </div>
+
+        {/* <Link to='/product' className="dash">
           <li>
             <i class="fa-solid fa-wallet"></i>
-          {!toggle && <span>Product details</span>}
+          {!toggle && <span> Add Product</span>}
           </li>
-          </Link>
+          </Link>*/}
 
 
-          <Link to='/category' className="dash">
-          <li>
-            <i class="fa-solid fa-layer-group"></i>
-          {!toggle && <span>Category</span>}
+        <Link to='/unlisted' className="dash">
+          <li
+            className={`${actived === "unlisted" ? "actived" : ""}`}
+            onClick={() => handleSetActive("unlisted")}>
+            <i className="bi bi-card-checklist"></i>
+            {!toggle && <span> Add Unlisted</span>}
           </li>
-          </Link>
+          {/* <p className="dash-name">Unlisted</p> */}
 
+        </Link>
 
-          <Link to='/blog' className="dash">
-          <li>
-            <i class="fa-solid fa-blog"></i>
-          {!toggle && <span>Blog</span>}
+        <Link to='/bond' className="dash">
+          <li
+            className={`${actived === "bond" ? "actived" : ""}`}
+            onClick={() => handleSetActive("bond")}
+          >
+            <i className="fa-solid fa-wallet"></i>
+            {!toggle && <span> Add Bond</span>}
           </li>
-          </Link>
+          {/* <p className="dash-name">Bond</p> */}
+
+        </Link>
 
 
-          <Link to='/testimonial' className="dash">
-          <li>
-            <i class="fa-solid fa-comment-dots"></i>
-          {!toggle && <span>Testimonials</span>}
+        <Link to='/prodetail' className="dash">
+          <li
+            className={`${actived === "prodetail" ? "actived" : ""}`}
+            onClick={() => handleSetActive("prodetail")}>
+            <i className="fa-solid fa-folder-open"></i>
+            {!toggle && <span>Product Details</span>}
           </li>
+          {/* <p className="dash-name">Details</p> */}
 
-          </Link>
+        </Link>
 
-          <Link to='/specialities' className="dash">
-          <li>
-            <i class="fa-solid fa-star"></i>
-          {!toggle && <span>Specialities</span>}
+
+
+
+        <Link to='/blog' className="dash">
+          <li
+            className={`${actived === "blog" ? "actived" : ""}`}
+            onClick={() => handleSetActive("blog")}>
+            <i className="fa-solid fa-blog"></i>
+            {!toggle && <span>Blog</span>}
           </li>
-          </Link>
+          {/* <p className="dash-name">Blog</p> */}
+
+        </Link>
 
 
-          <Link to='/fundamentals' className="dash">
-          <li>
-            <i class="fas fa-lightbulb"></i>
-          {!toggle && <span>Fundamentals</span>}
+        <Link to='/testimonial' className="dash">
+          <li
+            className={`${actived === "testimonial" ? "actived" : ""}`}
+            onClick={() => handleSetActive("testimonial")}>
+            <i className="fa-solid fa-comment-dots"></i>
+            {!toggle && <span>Testimonials</span>}
           </li>
+          {/* <p className="dash-name">Testimonials</p> */}
 
-          </Link>
+
+        </Link>
+
+        <Link to='/specialities' className="dash">
+          <li
+            className={`${actived === "specialities" ? "actived" : ""}`}
+            onClick={() => handleSetActive("specialities")}>
+            <i className="fa-solid fa-star"></i>
+            {!toggle && <span>Specialities</span>}
+          </li>
+          {/* <p className="dash-name">Specialities</p> */}
+
+        </Link>
 
 
-          <Link to='/portfolio' className="dash">
-          <li>
+        <Link to='/fundamentals' className="dash">
+          <li
+            className={`${actived === "fundamentals" ? "actived" : ""}`}
+            onClick={() => handleSetActive("fundamentals")}>
+            <i className="fa-solid fa-pen-nib"></i>
+            {!toggle && <span> Fundamentals</span>}
+          </li>
+          {/* <p className="dash-name">Fundamentals</p> */}
+
+
+        </Link>
+
+
+        <Link to='/portfolio' className="dash">
+          <li
+            className={`${actived === "portfolio" ? "actived" : ""}`}
+            onClick={() => handleSetActive("portfolio")}>
             <i className="fa-solid fa-briefcase"></i>
-          {!toggle && <span >Portfolio</span> }
+            {!toggle && <span >Portfolio</span>}
           </li>
-          </Link>
+          {/* <p className="dash-name">Portfolio</p> */}
 
-          <Link to='/bond' className="dash">
+        </Link>
+
+        {/* <Link to='/bond' className="dash">
           <li>
           <i class="fa-solid fa-handshake"></i>
           {!toggle && <span>Bond</span> }
           </li>
-          </Link>
+          </Link> */}
 
 
-          <Link to='/faq' className="dash">
-          <li>
-          <i className="fa-solid fa-circle-question"></i>
-          {!toggle && <span>FAQ</span>}
+        <Link to='/faq' className="dash">
+          <li
+            className={`${actived === "faq" ? "actived" : ""}`}
+            onClick={() => handleSetActive("faq")}>
+            <i className="fa-solid fa-circle-question"></i>
+            {!toggle && <span>FAQ</span>}
           </li>
-          </Link>
+          {/* <p className="dash-name">Faq</p> */}
 
-          <Link to='/promap' className="dash">
+        </Link>
+
+        {/* <Link to='/promap' className="dash">
           <li>
           <i className="fa-solid fa-map"></i>
           {!toggle && <span>Map Product</span>}
           </li>
-          </Link>
+          </Link> */}
 
-        
-          <Link to='/pdf' className="dash">
-          <li>
-          <i class="fa-brands fa-product-hunt"></i>
-          {!toggle && <span>Product </span> }
+
+        <Link to='/pdf' className="dash">
+          <li
+            className={`${actived === "pdf" ? "actived" : ""}`}
+            onClick={() => handleSetActive("pdf")}>
+            <i className="fa-solid fa-chart-simple"></i>
+            {!toggle && <span>Product </span>}
           </li>
-          </Link>
-        
+          {/* <p className="dash-name">Product</p> */}
 
-          
-          <Link to='/enquiry' className="dash">
-          <li>
-          <i class="fa-solid fa-envelope-open-text"></i>
-          {!toggle && <span>Enquiry</span> }
+        </Link>
+
+
+
+        <Link to='/enquiry' className="dash">
+          <li
+            className={`${actived === "enquiry" ? "actived" : ""}`}
+            onClick={() => handleSetActive("enquiry")}>
+            <i className="fa-solid fa-envelope-open-text"></i>
+            {!toggle && <span>Enquiry</span>}
           </li>
-          </Link>
-        
+          {/* <p className="dash-name">Enquiry</p> */}
 
-    
+        </Link>
+
+
+
 
       </ul>
     </div>
