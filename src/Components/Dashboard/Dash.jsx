@@ -7,14 +7,16 @@ import { useAuth } from "../Auth";
 import { useNavigate } from "react-router-dom";
 
 function Dash() {
-  const [token, setToken] = useState(localStorage.getItem('token'))
+  // const [token, setToken] = useState(localStorage.getItem('token'))
+  const token= useState(localStorage.getItem('token'))
+
   const [totalEnquiries, settotalEnquiries] = useState([]);
   const [pendingEnquiries, setPendingEnquiries] = useState([]);
   const [completedEnquiries, setCompletedEnquiries] = useState([]);
   const [cancelledEnquiries, setCancelledEnquiries] = useState([]);
   const [unlistedProducts, setUnlistedProducts] = useState([]);
   const [bondsProducts, setBondsProducts] = useState([]);
-  const { isAuthenticated, login, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate()
   const api_path = process.env.REACT_APP_API_URL;
 
@@ -22,7 +24,9 @@ function Dash() {
 
   useEffect(() => {
     // const storedToken = localStorage.getItem("token");
-    const token = localStorage.getItem('token')
+    // const token = localStorage.getItem('token')
+    // setToken(storedToken); 
+
     if (isAuthenticated === true) {
       navigate('/dashboard')
       fetchEnquiry(token);
@@ -35,7 +39,6 @@ function Dash() {
 
     }
 
-    // setToken(storedToken); 
     // if (!storedToken) {
     //   window.location.href = "/";
     // } else {

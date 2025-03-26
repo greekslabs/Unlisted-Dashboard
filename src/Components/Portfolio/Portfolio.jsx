@@ -20,7 +20,9 @@ function Portfolio() {
     })
 
     const [search, setsearch] = useState("")
-    const [token, setToken] = useState(localStorage.getItem('token'))
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
     const api_path = process.env.REACT_APP_API_URL;
     const api_path_customer = process.env.REACT_APP_ACCOUNTS
 
@@ -32,7 +34,7 @@ function Portfolio() {
 
     const buttonRef = useRef(null)
     const modalRef = useRef(null)
-    const { isAuthenticated, login, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
     // const token = localStorage.getItem('token');
 
@@ -216,9 +218,9 @@ function Portfolio() {
         })
     }
 
-    const removeImg = () => {
-        setImg('')
-    }
+    // const removeImg = () => {
+    //     setImg('')
+    // }
 
     const openModal = (portfolio) => {
         setEdit(portfolio)
@@ -238,7 +240,7 @@ function Portfolio() {
                 }
             )
             // console.log("Portfolio Edit", res)
-            if (res.data.message == "Updated selected Transaction details") {
+            if (res.data.message === "Updated selected Transaction details") {
                 fetchPortfolio()
                 // setData(data.map(item => (item.id === edit.id ? res.data.data : item)))
                 Swal.fire({ title: "Edit SuccessFull", icon: "success", timer: 3000, showConfirmButton: false, toast: true, position: 'top-end' })

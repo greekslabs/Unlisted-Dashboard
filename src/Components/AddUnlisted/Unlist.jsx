@@ -22,7 +22,7 @@ function Unlist() {
         name: '', quantity: "", category: "", price: ""
     })
     const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
     const api_path = process.env.REACT_APP_API_URL;
 
@@ -33,7 +33,7 @@ function Unlist() {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        // setToken(token)
+        setToken(token)
 
         if (isAuthenticated === true) {
             navigate('/unlisted')

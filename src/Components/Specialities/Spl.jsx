@@ -25,8 +25,10 @@ function Spl() {
 
     const [currentPage, setCurrentPage] = useState(1)
     const rowsperPage = 5
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
     const api_path=process.env.REACT_APP_INDEX;
 
@@ -400,7 +402,7 @@ function Spl() {
                                         <td>{item.description}</td>
                                         <td>
 
-                                            <img src={item.icon}
+                                            <img src={item.icon} alt='Image'
                                                 style={{ width: '90px', height: '90px' }} />
                                         </td>
                                         <td className='details'>

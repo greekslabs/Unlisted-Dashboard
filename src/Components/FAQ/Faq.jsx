@@ -18,8 +18,10 @@ function Faq() {
     const modalRef = useRef(null)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
+    const { isAuthenticated,logout } = useAuth();
     const navigate = useNavigate()
 
     const rowsperPage = 5

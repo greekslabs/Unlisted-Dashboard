@@ -18,8 +18,8 @@ function Offer() {
     const [editimg, setEditImg] = useState(null)
     const buttonRef = useRef(null)
     const modalRef = useRef(null)
-    // const token = localStorage.getItem('token')
-    const [token, setToken] = useState(localStorage.getItem('token'))
+    const token = localStorage.getItem('token')
+    // const [token, setToken] = useState(localStorage.getItem('token'))
     const api_path = process.env.REACT_APP_INDEX;
     const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
@@ -45,7 +45,7 @@ function Offer() {
         // else {
         //     fetchOffer(token)
         // }
-    }, [])
+    }, [isAuthenticated])
 
     // useEffect(()=>{
     //     fetchOffer()
@@ -405,7 +405,7 @@ function Offer() {
                                     <td>{item.name}</td>
                                     <td>{item.description}</td>
                                     <td>
-                                        <img src={item.image}
+                                        <img src={item.image} alt='Offer Image'
                                             style={{ width: '90px', height: '90px' }} />
                                     </td>
                                     <td className='details'>

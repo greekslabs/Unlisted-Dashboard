@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
 
-  const [access, setaccess] = useState('')
+  // const [access, setaccess] = useState('')
   const [pendingEnquiries, setPendingEnquiries] = useState(0);
   const { isAuthenticated,  logout } = useAuth();
   const navigate=useNavigate()
@@ -75,7 +75,7 @@ function Navbar() {
         <div className="navbar">
           <div className="logo">
             <div className="logo-img">
-              <img src="assets/Vitta Money-01.png" />
+              <img src="assets/Vitta Money-01.png"  alt='logo'/>
             </div>
             {/* <i className="fa-solid fa-user"></i> */}
             {/* <h1 className="title">DarkPan</h1> */}

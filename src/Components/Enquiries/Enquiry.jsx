@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Enquiry.css'
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { Document, Page, Text, View, StyleSheet, pdf, Image } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, pdf } from "@react-pdf/renderer";
 import { useAuth } from '../Auth';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,10 +20,12 @@ function Enquiry() {
     const [data, setData] = useState([])
     const [statusid, setstatusid] = useState('')
     const [statustype, setstatustype] = useState('')
-    const [fetchPro, setFetchPro] = useState([])
-    const [customers, setCustomers] = useState([]);
+    // const [fetchPro, setFetchPro] = useState([])
+    // const [customers, setCustomers] = useState([]);
     const [filtered, setFiltered] = useState([])
-    const [token, setToken] = useState(localStorage.getItem('token'))
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
     const quantityRef = useRef(null)
     const priceRef = useRef(null)
     const [search, setSearch] = useState({
@@ -46,7 +48,7 @@ function Enquiry() {
 
 
 
-    const modalRef = useRef(null)
+    // const modalRef = useRef(null)
     const productRef=useRef(null)
     const bondRef=useRef(null)
 
@@ -228,7 +230,7 @@ function Enquiry() {
                 }
             });
             // console.log("Customers Data:", res.data);
-            setCustomers(res.data);
+            // setCustomers(res.data);
         } catch (error) {
             console.log(error.status)
             if (error.status === 404) {
@@ -257,7 +259,7 @@ function Enquiry() {
                 }
             });
             // console.log(res.data);
-            setFetchPro(res.data.data);
+            // setFetchPro(res.data.data);
         } catch (error) {
             const er = error?.response
             console.error("Error fetching Products:", error?.response);

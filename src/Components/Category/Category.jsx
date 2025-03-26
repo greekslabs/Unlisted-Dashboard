@@ -3,7 +3,7 @@ import './Category.css'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { useAuth } from '../Auth'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 // import { useRef } from 'react'
 
 function Category() {
@@ -38,8 +38,10 @@ function Category() {
 
     const buttonRef = useRef(null)
     const modalClose = useRef(null)
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    // const [token, setToken] = useState(localStorage.getItem('token'))
+    const token= useState(localStorage.getItem('token'))
+
+    const { isAuthenticated, logout } = useAuth();
     const api_path = process.env.REACT_APP_API_URL;
 
 
@@ -48,7 +50,6 @@ function Category() {
     useEffect(() => {
         const token = localStorage.getItem('token')
         // console.log("is auth", api_path)
-
         if (isAuthenticated === true) {
             navigate("/category")
             fetch()

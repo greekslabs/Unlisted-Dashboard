@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Components/Login/Login';
-import Dash from './Components/Dashboard/Dash';
-import Navbar from './Components/Navbar/Navbar';
-import SideBar from './Components/Sidebar/SideBar';
-import Offer from './Components/OfferCarousal/Offer';
-import Product from './Components/AddProducts/Product';
-import Category from './Components/Category/Category';
-import Blog from './Components/Blogs/Blog';
-import Testimonial from './Components/Testimonials/Testimonial';
-import Spl from './Components/Specialities/Spl';
-import Fundamentals from './Components/Fundamentals/Fundamentals';
-import Portfolio from './Components/Portfolio/Portfolio';
-// import Bond from './Components/Bond/Bond';
-import Faq from './Components/FAQ/Faq';
-// import Mapro from './Components/MapProduct/Mapro';
-import Propdf from './Components/ProPdf/Propdf';
-import Enquiry from './Components/Enquiries/Enquiry';
-// import ProDetail from './Components/productDetails/ProUnlisted';
-import Unlist from './Components/AddUnlisted/Unlist';
-import Bond from './Components/AddBond/Bond';
-import ProDetails from './Components/productDetails/ProDetails';
-import { useAuth } from './Components/Auth';
+import React, { Suspense, lazy, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useAuth } from "./Components/Auth";
+import Navbar from "./Components/Navbar/Navbar";
+import SideBar from "./Components/Sidebar/SideBar";
+
+// Lazy Load Components
+const Login = lazy(() => import("./Components/Login/Login"));
+const Dash = lazy(() => import("./Components/Dashboard/Dash"));
+const Offer = lazy(() => import("./Components/OfferCarousal/Offer"));
+const Category = lazy(() => import("./Components/Category/Category"));
+const Blog = lazy(() => import("./Components/Blogs/Blog"));
+const Testimonial = lazy(() => import("./Components/Testimonials/Testimonial"));
+const Spl = lazy(() => import("./Components/Specialities/Spl"));
+const Fundamentals = lazy(() => import("./Components/Fundamentals/Fundamentals"));
+const Portfolio = lazy(() => import("./Components/Portfolio/Portfolio"));
+const Faq = lazy(() => import("./Components/FAQ/Faq"));
+const Propdf = lazy(() => import("./Components/ProPdf/Propdf"));
+const Enquiry = lazy(() => import("./Components/Enquiries/Enquiry"));
+const Unlist = lazy(() => import("./Components/AddUnlisted/Unlist"));
+const Bond = lazy(() => import("./Components/AddBond/Bond"));
+const ProDetails = lazy(() => import("./Components/productDetails/ProDetails"));
 
 
 function App() {
-  const [access, setAccess] = useState('');
-  const { isAuthenticated ,logout } = useAuth();
+  // const [access, setAccess] = useState('');
+  const { isAuthenticated } = useAuth();
   
 
 
@@ -34,9 +32,9 @@ function App() {
 
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    // const token = localStorage.getItem('token');
     // console.log(token)
-    setAccess(token);
+    // setAccess(token);
   }, []);
 
   return (
@@ -54,6 +52,7 @@ function App() {
 
           )}
           <div className="component">
+          <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/dashboard" element={<Dash />} />
@@ -76,6 +75,7 @@ function App() {
               <Route path='/prodetail' element={<ProDetails/>}/>
 
             </Routes>
+            </Suspense>
           </div>
       </div>
    

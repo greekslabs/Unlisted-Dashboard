@@ -11,9 +11,9 @@ function Propdf() {
     // const [pro, setPro] = useState()
     // const [fetchpro, setFetchPro] = useState([]);
 
-    // const token = localStorage.getItem('token');
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated ,login, logout } = useAuth();
+    const token = localStorage.getItem('token');
+    // const [token, setToken] = useState(localStorage.getItem('token'))
+    const { isAuthenticated , logout } = useAuth();
       const navigate=useNavigate()
       const api_path=process.env.REACT_APP_API_URL;
 
@@ -28,7 +28,7 @@ function Propdf() {
     // }, [])
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
+        // const token = localStorage.getItem('token')
         if(isAuthenticated){
             navigate('/pdf')
             // fetchProducts(token)

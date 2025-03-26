@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   const [toggle, setToggle] = useState(true);
-  const [access, setaccess] = useState('')
+  // const [access, setaccess] = useState('')
   // const current="dashboard"
   // const [actived, setActived] = useState("dashboard")
   const [actived, setActived] = useState(localStorage.getItem("actived") || "dashboard");
@@ -22,7 +22,7 @@ function SideBar() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    setaccess(token)
+    // setaccess(token)
     // setActived(actived)
 
     const savedActive = localStorage.getItem("actived");

@@ -41,7 +41,7 @@ function Fundamentals() {
     const [currentPage, setCurrentPage] = useState(1)
     const rowsperPage = 5
     // const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
     const api_path = process.env.REACT_APP_API_URL;
 

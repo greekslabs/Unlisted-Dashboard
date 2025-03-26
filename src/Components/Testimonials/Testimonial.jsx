@@ -26,8 +26,10 @@ function Testimonial() {
 
     const [currentPage, setCurrentPage] = useState(1)
     const rowsperPage = 5
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const { isAuthenticated, login, logout } = useAuth();
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
     const api_path = process.env.REACT_APP_INDEX;
 
@@ -440,7 +442,7 @@ function Testimonial() {
 
                                         <td>{item.feedback}</td>
                                         <td>
-                                            <img src={item.image}
+                                            <img src={item.image} alt='Image'
                                                 style={{ width: '90px', height: '90px' }} />                                        </td>
                                         <td className='details'>
                                             <button onClick={() => handleDelete(item.id)} >Delete</button>

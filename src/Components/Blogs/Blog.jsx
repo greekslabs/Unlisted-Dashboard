@@ -46,7 +46,8 @@ function Blog() {
     // }, [])
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
+        // const token = localStorage.getItem('token')
+        setToken(token)
         if (isAuthenticated) {
             navigate('/blog')
             fetchBlog(token)
@@ -56,7 +57,7 @@ function Blog() {
             navigate('/')
 
         }
-        // setToken(token)
+        
 
         // if (!token) {
         //     window.location.href = '/'
@@ -476,7 +477,7 @@ function Blog() {
                                     <td>{item.content}</td>
                                     <td>{item.published}</td>
                                     <td>
-                                        <img src={item.image}
+                                        <img src={item.image} alt='Blog'
                                             style={{ width: '90px', height: '90px' }} />                            </td>
                                     <td className='details'>
                                         <button onClick={() => handleDelete(item.id)} >Delete</button>

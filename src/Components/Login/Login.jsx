@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Login.css'
-import { data, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useAuth } from '../Auth';
@@ -16,7 +16,7 @@ function Login() {
     const nav = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
-    const [isAuthenticated, logout] = useState(false)
+    const [isAuthenticated] = useState(false)
     const { login } = useAuth()
 
     // useEffect(() => {

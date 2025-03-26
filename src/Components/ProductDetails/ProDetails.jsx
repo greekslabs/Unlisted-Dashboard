@@ -28,12 +28,13 @@ function ProDetails() {
 
   const [currentPage, setCurrentPage] = useState(1)
   const rowsperPage = 5
-  const [token, setToken] = useState(localStorage.getItem('token'))
+  const token= useState(localStorage.getItem('token'))
+  // const [token, setToken] = useState(localStorage.getItem('token'))
   const productRef = useRef(null)
   const bondRef = useRef(null)
   const showProModal = useRef(null)
   const showBondModal = useRef(null)
-  const { isAuthenticated, login, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate()
   const api_path = process.env.REACT_APP_API_URL;
 
@@ -107,7 +108,7 @@ function ProDetails() {
 
     }
     catch (error) {
-      const er = error?.response
+      // const er = error?.response
       console.error("Error Getting details:", error?.response);
       Swal.fire({ title: "Error fetching details", icon: "error" });
 
@@ -198,7 +199,7 @@ function ProDetails() {
           }
         }
         catch (error) {
-          const er = error?.response
+          // const er = error?.response
           console.error("Error Deleting details:", error?.response);
 
           Swal.fire({ title: "Deletion Failed", icon: "error", timer: 3000, position: "top-end", showConfirmButton: false, toast: true })

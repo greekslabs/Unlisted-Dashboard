@@ -16,24 +16,26 @@ function Bond() {
     const modalRef = useRef(null)
     const [editImg, setEditImg] = useState(null)
     const [currentItems, setcurrentItems] = useState([])
-    const [token, setToken] = useState(localStorage.getItem('token'))
+    const token= useState(localStorage.getItem('token'))
+
+    // const [token, setToken] = useState(localStorage.getItem('token'))
     const api_path = process.env.REACT_APP_API_URL;
 
 
 
-    const [search, setSearch] = useState({
-        name: "",
-        quantity: "",
-        category: "",
-        price: "",
-    });
+    // const [search, setSearch] = useState({
+    //     name: "",
+    //     quantity: "",
+    //     category: "",
+    //     price: "",
+    // });
 
 
     const [currentPage, setCurrentPage] = useState(1)
     const rowsperPage = 5
     const [prevPage, setprevPage] = useState(0)
     const [totalPages, settotalPages] = useState(0)
-    const { isAuthenticated, login, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate()
 
 
@@ -659,7 +661,7 @@ function Bond() {
                                         </td>
                                         {/* <td>{item.variant}</td> */}
                                         {/* <td>{item.price}</td> */}
-                                        <td><img src={item.image}
+                                        <td><img src={item.image} alt='Bond'
                                             style={{ width: '90px', height: '90px' }} /></td>
                                         <td className='details'>
 
